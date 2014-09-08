@@ -34,3 +34,7 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+TimeGame/TimeGame/cocos2d/
+TimeGame/TimeGame/proj.win32/Debug.win32/
+
