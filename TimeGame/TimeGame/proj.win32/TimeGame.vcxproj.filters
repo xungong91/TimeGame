@@ -13,6 +13,9 @@
     <Filter Include="Layer">
       <UniqueIdentifier>{3ac6d1a5-eb1b-4a5c-b056-588abcabcad1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sprite">
+      <UniqueIdentifier>{59a80c96-616a-4a38-a0eb-eed9f8c015ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -34,6 +37,9 @@
       <Filter>Layer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Layer\CHudLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Layer\CSpriteLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +66,9 @@
       <Filter>Layer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Defines.h" />
+    <ClInclude Include="..\Classes\Layer\CSpriteLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

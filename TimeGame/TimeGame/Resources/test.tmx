@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="blocks" tilewidth="32" tileheight="32">
+  <image source="blocks.png" width="384" height="512"/>
+ </tileset>
+ <layer name="land" width="50" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0sEKgCAQhOGtvJbn6v3fs70VkaTkEAv/B4MXWWZFMwAA8MXq2Tz730Ua9eydOsyopXpv9Q7qf5Ls3OF+RqLq3Dq3dL92jmKPwTMGyPTSefYsAZIvezx1BhQOWA4EYw==
+  </data>
+ </layer>
+ <objectgroup name="sprite" width="50" height="20">
+  <object name="player" x="45" y="260" width="54" height="100"/>
+ </objectgroup>
+</map>

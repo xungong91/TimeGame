@@ -1,5 +1,6 @@
 #include "CGameScene.h"
 #include "Layer/CGameLayer.h"
+#include "Layer/CHudLayer.h"
 
 CGameScene::CGameScene()
 {
@@ -20,6 +21,10 @@ bool CGameScene::init()
 
 	CGameLayer *gameLayer = CGameLayer::create();
 	this->addChild(gameLayer);
+
+	CHudLayer *hudLayer = CHudLayer::create();
+	hudLayer->OnTouchBeganCB = bind(&CGameLayer::onTouchePoints, gameLayer, std::placeholders::_1);
+	this->addChild(hudLayer);
 
 	return true;
 }

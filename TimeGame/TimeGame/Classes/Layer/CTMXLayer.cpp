@@ -17,8 +17,9 @@ bool CTMXLayer::init()
 		return false;
 	}
 
-	mTMXTiledMap = CCTMXTiledMap::create("1_1.tmx");  
+	mTMXTiledMap = CCTMXTiledMap::create("test.tmx");  
 	addChild(mTMXTiledMap);  
+
 
 	return true;
 }
