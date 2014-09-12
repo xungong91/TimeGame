@@ -35,8 +35,8 @@ Icon
 .Spotlight-V100
 .Trashes
 
-.sdf
-
 TimeGame/TimeGame/cocos2d/
 TimeGame/TimeGame/proj.win32/Debug.win32/
 
+
+*.sdf
