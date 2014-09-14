@@ -12,6 +12,8 @@ public:
 	~CTMXLayer();
 	CREATE_FUNC(CTMXLayer);
 	bool init();
+	Point getTileCoordForPosition(const Point &point);
+	Rect getTileRectFromTileCoords(const Point &point);
 private:
 	TMXTiledMap *mTMXTiledMap;
 };

@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "CTMXLayer.h"
-#include "CSpriteLayer.h"
+#include "Sprite/CPandaSprite.h"
 
 USING_NS_CC;
 
@@ -16,8 +16,10 @@ public:
 	bool init();
 
 	void onTouchePoints(Vec2 v2);
+
+	void update(float dt);
 private:
 	CTMXLayer *mTMXLayer;
-	CSpriteLayer *mSpriteLayer;
+	CPandaSprite *mPandaSprite;
 };
 #endif

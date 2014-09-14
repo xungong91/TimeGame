@@ -42,6 +42,9 @@
     <ClCompile Include="..\Classes\Layer\CSpriteLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Sprite\CPandaSprite.cpp">
+      <Filter>Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -68,6 +71,9 @@
     <ClInclude Include="..\Classes\Defines.h" />
     <ClInclude Include="..\Classes\Layer\CSpriteLayer.h">
       <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sprite\CPandaSprite.h">
+      <Filter>Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

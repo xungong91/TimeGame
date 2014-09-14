@@ -17,6 +17,9 @@ bool CSpriteLayer::init()
 		return false;
 	}
 
+	mPandaSprite = CPandaSprite::create();
+	this->addChild(mPandaSprite);
+
 	return true;
 }
 

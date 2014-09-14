@@ -2,6 +2,7 @@
 #define _C_SPRITE_LAYER_H_
 
 #include "cocos2d.h"
+#include "Sprite/CPandaSprite.h"
 
 USING_NS_CC;
 
@@ -12,7 +13,7 @@ public:
 	~CSpriteLayer();
 	CREATE_FUNC(CSpriteLayer);
 	bool init();
+	CPandaSprite *mPandaSprite;
 private:
-
 };
 #endif
