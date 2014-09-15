@@ -26,8 +26,6 @@ bool CPandaSprite::init()
 		return false;
 	}
 	this->setAnchorPoint(Vec2(0.5f, 0));
-	this->setPosition(Vec2(200, 200));
-
 
 	int i;
 	//run animation
@@ -94,7 +92,6 @@ bool CPandaSprite::jump()
 void CPandaSprite::update( float dt )
 {
 	Sprite::update(dt);
-	return;
 	Point gravity = Point(0, -450);
 
 	Point gravityStep = gravity * dt;
@@ -102,5 +99,14 @@ void CPandaSprite::update( float dt )
 	mVelocity = mVelocity + gravityStep;
 	Point stepVelocity = mVelocity * dt;
 
-	this->setPosition(this->getPosition() + stepVelocity);
+	//this->setPosition(this->getPosition() + stepVelocity);
+	mDesiredPosition = this->getPosition() + stepVelocity;
+}
+
+Rect CPandaSprite::getCollisionBoundingBox()
+{
+	Rect collisionBox = mCollisionBoundingBox;
+	Point diff = mDesiredPosition;
+	Rect returnBoundingBox = Rect(diff.x, diff.y, collisionBox.size.width, collisionBox.size.height);
+	return returnBoundingBox;
 }

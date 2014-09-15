@@ -1,5 +1,6 @@
 #include "CGameLayer.h"
 #include "Defines.h"
+#include "Tools/CGameHelper.h"
 
 CGameLayer::CGameLayer()
 {
@@ -22,6 +23,8 @@ bool CGameLayer::init()
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("panda.plist");
 	mPandaSprite = CPandaSprite::create();
+	mPandaSprite->setPosition(Vec2(200, 180));
+	mPandaSprite->setDesiredPosition(Vec2(200, 180));
 	this->addChild(mPandaSprite);
 	mPandaSprite->run();
 
@@ -40,8 +43,36 @@ void CGameLayer::onTouchePoints( Vec2 v2 )
 void CGameLayer::update( float dt )
 {
 	Layer::update(dt);
+	checkForAndResolveCollisions(dt);
 
 	Point pandaPoint = mPandaSprite->getPosition();
 	Vec2 vec2 = Vec2(WINSIZE.width/2 - pandaPoint.x, WINSIZE.height/2 - pandaPoint.y);
 	this->setPosition(vec2);
+
+}
+
+void CGameLayer::checkForAndResolveCollisions( float dt )
+{
+	vector<SurroundingTilesStruct> surroundingTiles = mTMXLayer->getSurroundingTilesAtPosition(mPandaSprite->getPosition());
+
+	Rect pRect = mPandaSprite->getCollisionBoundingBox();
+	for (int i = 0; i < surroundingTiles.size(); i++)
+	{
+		int gid = surroundingTiles[i].gid;
+		if (gid != 0)
+		{
+			Rect tileRect = surroundingTiles[i].rect;
+			if (pRect.intersectsRect(tileRect))
+			{
+				Rect intersection = CGameHelper::getRectIntersection(pRect, tileRect);
+				if (i == 0) 
+				{
+					//tile is directly below panda
+					mPandaSprite->setDesiredPosition(Point(mPandaSprite->getDesiredPosition().x, 
+						mPandaSprite->getDesiredPosition().y + intersection.size.height));
+				}
+			}
+		}
+	}
+	mPandaSprite->setPosition(mPandaSprite->getDesiredPosition());
 }

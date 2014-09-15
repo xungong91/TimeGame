@@ -5,7 +5,7 @@
  </tileset>
  <layer name="land" width="50" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt0sEKgCAQhOGtvJbn6v3fs70VkaTkEAv/B4MXWWZFMwAA8MXq2Tz730Ua9eydOsyopXpv9Q7qf5Ls3OF+RqLq3Dq3dL92jmKPwTMGyPTSefYsAZIvezx1BhQOWA4EYw==
+   eJztksEKgCAQRLf0ap6t///P9qaIkZJDLsyDwYsM80QRQgghhHwhaU7N9feQQWbu9hM6ekG9N9oB/U+8ZIf6tARq82jv0/3eHoTHptkNxL1sDprDQGLh0dps0aMFPdbyuAEL5Qtx
   </data>
  </layer>
  <objectgroup name="sprite" width="50" height="20">

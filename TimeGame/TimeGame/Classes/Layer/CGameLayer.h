@@ -18,6 +18,7 @@ public:
 	void onTouchePoints(Vec2 v2);
 
 	void update(float dt);
+	void checkForAndResolveCollisions(float dt);
 private:
 	CTMXLayer *mTMXLayer;
 	CPandaSprite *mPandaSprite;
