@@ -22,3 +22,10 @@ Rect CGameHelper::getRectIntersection( const Rect &rect1, const Rect &rect2 )
 	return CCRectMake(ori.x, ori.y, width, height);
 }
 
+Rect CGameHelper::getRectInset( const Rect &rect, float w, float h )
+{
+	Rect result = Rect(rect.origin.x + w, rect.origin.y + h,
+		rect.size.width - w*2, rect.size.height - h*2);
+	return result;
+}
+

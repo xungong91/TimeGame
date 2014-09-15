@@ -26,13 +26,13 @@ public:
 	Rect getCollisionBoundingBox();
 
 	virtual void update(float dt);
+
+	bool onGround;
 private:
 	//×´Ì¬
 	_ActionState mActionState;
 	//ËÙ¶È
 	Point mVelocity;
-	//¿ò
-	Rect mCollisionBoundingBox;
 };
 
 #endif

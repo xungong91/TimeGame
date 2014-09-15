@@ -55,9 +55,11 @@ void CGameLayer::checkForAndResolveCollisions( float dt )
 {
 	vector<SurroundingTilesStruct> surroundingTiles = mTMXLayer->getSurroundingTilesAtPosition(mPandaSprite->getPosition());
 
-	Rect pRect = mPandaSprite->getCollisionBoundingBox();
+	mPandaSprite->onGround = false;
+
 	for (int i = 0; i < surroundingTiles.size(); i++)
 	{
+		Rect pRect = mPandaSprite->getCollisionBoundingBox();
 		int gid = surroundingTiles[i].gid;
 		if (gid != 0)
 		{
@@ -70,6 +72,7 @@ void CGameLayer::checkForAndResolveCollisions( float dt )
 					//tile is directly below panda
 					mPandaSprite->setDesiredPosition(Point(mPandaSprite->getDesiredPosition().x, 
 						mPandaSprite->getDesiredPosition().y + intersection.size.height));
+					mPandaSprite->onGround = true;
 				}
 			}
 		}

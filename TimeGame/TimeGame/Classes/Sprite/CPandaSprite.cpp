@@ -1,4 +1,5 @@
 #include "CPandaSprite.h"
+#include "Tools/CGameHelper.h"
 
 USING_NS_CC;
 using namespace std;
@@ -7,7 +8,6 @@ CPandaSprite::CPandaSprite() :
 	_runAction(NULL),
 	_jumpAction(NULL),
 	mVelocity(0.0f, 0.0f),
-	mCollisionBoundingBox(10, 1, 60.0f, 90.0f),
 	mActionState(_ActionState::empty)
 {
 
@@ -99,14 +99,20 @@ void CPandaSprite::update( float dt )
 	mVelocity = mVelocity + gravityStep;
 	Point stepVelocity = mVelocity * dt;
 
+	if (onGround)
+	{
+		mVelocity = CCPoint(mVelocity.x, 0);
+		stepVelocity = mVelocity * dt;
+	}
 	//this->setPosition(this->getPosition() + stepVelocity);
 	mDesiredPosition = this->getPosition() + stepVelocity;
 }
 
 Rect CPandaSprite::getCollisionBoundingBox()
 {
-	Rect collisionBox = mCollisionBoundingBox;
-	Point diff = mDesiredPosition;
-	Rect returnBoundingBox = Rect(diff.x, diff.y, collisionBox.size.width, collisionBox.size.height);
+	Rect collisionBox = CGameHelper::getRectInset(this->boundingBox(), 5, 1);
+	Point diff =  this->mDesiredPosition - this->getPosition();
+	Rect returnBoundingBox = Rect(collisionBox.origin.x - diff.x, collisionBox.origin.y - diff.y, 
+		collisionBox.size.width, collisionBox.size.height);
 	return returnBoundingBox;
 }

@@ -45,7 +45,7 @@ vector<SurroundingTilesStruct> CTMXLayer::getSurroundingTilesAtPosition( const P
 	Point mainTilePoint = getTileCoordForPosition(point);
 	vector<SurroundingTilesStruct> resultV;
 
-	int data[8] = {7, 1, 3, 5, 0, 2, 6, 8};
+	int data[9] = {4, 7, 1, 3, 5, 0, 2, 6, 8};
 
 	for (int i = 0; i < 8; i++)
 	{
