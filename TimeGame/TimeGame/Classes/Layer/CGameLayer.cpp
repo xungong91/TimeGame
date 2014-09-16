@@ -42,6 +42,7 @@ void CGameLayer::onToucheBeganPoints( Vec2 v2 )
 	{
 		mPandaSprite->mightAsWellJump = true;
 	}
+
 }
 
 void CGameLayer::onToucheMovePoints( Vec2 v2 )

@@ -103,7 +103,8 @@ void CPandaSprite::update( float dt )
 	mVelocity = ccpAdd(mVelocity, gravityStep);
 	mVelocity = Point(mVelocity.x * 0.90, mVelocity.y); //2
 
-	Point jumpForce = Point(0.0, 310.0);
+	Point jumpForce = Point(0.0,
+		310.0);
 
 	if (mightAsWellJump && onGround) {
 		mVelocity = mVelocity + jumpForce;
