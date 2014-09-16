@@ -32,12 +32,30 @@ bool CGameLayer::init()
 	return true;
 }
 
-void CGameLayer::onTouchePoints( Vec2 v2 )
+void CGameLayer::onToucheBeganPoints( Vec2 v2 )
 {
 	if (v2.x > WINSIZE.width/2)
 	{
-		mPandaSprite->jump();
+		mPandaSprite->forwardMarch = true;
 	}
+	else
+	{
+		mPandaSprite->mightAsWellJump = true;
+	}
+}
+
+void CGameLayer::onToucheMovePoints( Vec2 v2 )
+{
+	if (v2.x > WINSIZE.width/2)
+	{
+		mPandaSprite->forwardMarch = true;
+	}
+}
+
+void CGameLayer::onToucheEndPoints( Vec2 v2 )
+{
+	mPandaSprite->forwardMarch = false;
+	mPandaSprite->mightAsWellJump = false;
 }
 
 void CGameLayer::update( float dt )

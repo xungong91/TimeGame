@@ -27,7 +27,9 @@ public:
 
 	virtual void update(float dt);
 
-	bool onGround;
+	bool onGround;	//是否下落
+	bool forwardMarch; //是否前进
+	bool mightAsWellJump;
 private:
 	//状态
 	_ActionState mActionState;

@@ -8,7 +8,9 @@ CPandaSprite::CPandaSprite() :
 	_runAction(NULL),
 	_jumpAction(NULL),
 	mVelocity(0.0f, 0.0f),
-	mActionState(_ActionState::empty)
+	mActionState(_ActionState::empty),
+	mightAsWellJump(false),
+	forwardMarch(false)
 {
 
 }
@@ -92,18 +94,31 @@ bool CPandaSprite::jump()
 void CPandaSprite::update( float dt )
 {
 	Sprite::update(dt);
-	Point gravity = Point(0, -450);
-
+	Point gravity = Point(0.0, -450.0);
 	Point gravityStep = gravity * dt;
 
-	mVelocity = mVelocity + gravityStep;
+	Point forwardMove = Point(800.0, 0.0);
+	Point forwardStep = forwardMove * dt; //1
+
+	mVelocity = ccpAdd(mVelocity, gravityStep);
+	mVelocity = Point(mVelocity.x * 0.90, mVelocity.y); //2
+
+	Point jumpForce = Point(0.0, 310.0);
+
+	if (mightAsWellJump && onGround) {
+		mVelocity = mVelocity + jumpForce;
+	}
+
+	if (forwardMarch) {
+		mVelocity = mVelocity + forwardStep;
+	} //3
+
+	Point minMovement = Point(0.0, -450.0);
+	Point maxMovement = Point(120.0, 250.0);
+	mVelocity = ccpClamp(mVelocity, minMovement, maxMovement); //4
+
 	Point stepVelocity = mVelocity * dt;
 
-	if (onGround)
-	{
-		mVelocity = CCPoint(mVelocity.x, 0);
-		stepVelocity = mVelocity * dt;
-	}
 	//this->setPosition(this->getPosition() + stepVelocity);
 	mDesiredPosition = this->getPosition() + stepVelocity;
 }

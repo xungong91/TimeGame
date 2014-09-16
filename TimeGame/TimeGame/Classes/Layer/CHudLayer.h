@@ -16,10 +16,14 @@ public:
 	bool init();
 
 	virtual bool onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *unused_event );
+	virtual void onTouchMoved(Touch *touch, Event *unused_event);
+	virtual void onTouchEnded(Touch *touch, Event *unused_event);
 	virtual void onEnter();
 	virtual void onExit();
 
 	function<void (Vec2 v2)> OnTouchBeganCB;
+	function<void (Vec2 v2)> OnTouchMoveCB;
+	function<void (Vec2 v2)> OnTouchEndCB;
 private:
 };
 

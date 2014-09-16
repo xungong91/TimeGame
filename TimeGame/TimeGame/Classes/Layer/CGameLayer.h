@@ -15,7 +15,9 @@ public:
 	CREATE_FUNC(CGameLayer);
 	bool init();
 
-	void onTouchePoints(Vec2 v2);
+	void onToucheBeganPoints(Vec2 v2);
+	void onToucheMovePoints(Vec2 v2);
+	void onToucheEndPoints(Vec2 v2);
 
 	void update(float dt);
 	void checkForAndResolveCollisions(float dt);
