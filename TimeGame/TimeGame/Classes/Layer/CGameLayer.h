@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "CTMXLayer.h"
-#include "Sprite/CPandaSprite.h"
+#include "Sprite/CHeroSprite.h"
 
 USING_NS_CC;
 
@@ -23,6 +23,6 @@ public:
 	void checkForAndResolveCollisions(float dt);
 private:
 	CTMXLayer *mTMXLayer;
-	CPandaSprite *mPandaSprite;
+	CHeroSprite *mHero;
 };
 #endif

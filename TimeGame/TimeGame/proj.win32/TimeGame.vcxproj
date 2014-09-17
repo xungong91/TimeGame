@@ -140,7 +140,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\Layer\CHudLayer.cpp" />
     <ClCompile Include="..\Classes\Layer\CSpriteLayer.cpp" />
     <ClCompile Include="..\Classes\Layer\CTMXLayer.cpp" />
-    <ClCompile Include="..\Classes\Sprite\CPandaSprite.cpp" />
+    <ClCompile Include="..\Classes\Sprite\CHeroSprite.cpp" />
     <ClCompile Include="..\Classes\Tools\CGameHelper.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -153,7 +153,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\Layer\CHudLayer.h" />
     <ClInclude Include="..\Classes\Layer\CSpriteLayer.h" />
     <ClInclude Include="..\Classes\Layer\CTMXLayer.h" />
-    <ClInclude Include="..\Classes\Sprite\CPandaSprite.h" />
+    <ClInclude Include="..\Classes\Sprite\CHeroSprite.h" />
     <ClInclude Include="..\Classes\Tools\CGameHelper.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

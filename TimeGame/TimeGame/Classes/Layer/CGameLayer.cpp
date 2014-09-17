@@ -21,12 +21,12 @@ bool CGameLayer::init()
 	mTMXLayer = CTMXLayer::create();
 	this->addChild(mTMXLayer);
 
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("panda.plist");
-	mPandaSprite = CPandaSprite::create();
-	mPandaSprite->setPosition(Vec2(200, 180));
-	mPandaSprite->setDesiredPosition(Vec2(200, 180));
-	this->addChild(mPandaSprite);
-	mPandaSprite->run();
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("dude.plist");
+	mHero = CHeroSprite::create();
+	mHero->setPosition(Vec2(200, 180));
+	mHero->setDesiredPosition(Vec2(200, 180));
+	this->addChild(mHero);
+	mHero->run();
 
 	this->scheduleUpdate();
 	return true;
@@ -36,11 +36,11 @@ void CGameLayer::onToucheBeganPoints( Vec2 v2 )
 {
 	if (v2.x > WINSIZE.width/2)
 	{
-		mPandaSprite->forwardMarch = true;
+		mHero->forwardMarch = true;
 	}
 	else
 	{
-		mPandaSprite->mightAsWellJump = true;
+		mHero->mightAsWellJump = true;
 	}
 
 }
@@ -49,14 +49,14 @@ void CGameLayer::onToucheMovePoints( Vec2 v2 )
 {
 	if (v2.x > WINSIZE.width/2)
 	{
-		mPandaSprite->forwardMarch = true;
+		mHero->forwardMarch = true;
 	}
 }
 
 void CGameLayer::onToucheEndPoints( Vec2 v2 )
 {
-	mPandaSprite->forwardMarch = false;
-	mPandaSprite->mightAsWellJump = false;
+	mHero->forwardMarch = false;
+	mHero->mightAsWellJump = false;
 }
 
 void CGameLayer::update( float dt )
@@ -64,7 +64,7 @@ void CGameLayer::update( float dt )
 	Layer::update(dt);
 	checkForAndResolveCollisions(dt);
 
-	Point pandaPoint = mPandaSprite->getPosition();
+	Point pandaPoint = mHero->getPosition();
 	Vec2 vec2 = Vec2(WINSIZE.width/2 - pandaPoint.x, WINSIZE.height/2 - pandaPoint.y);
 	this->setPosition(vec2);
 
@@ -72,13 +72,13 @@ void CGameLayer::update( float dt )
 
 void CGameLayer::checkForAndResolveCollisions( float dt )
 {
-	vector<SurroundingTilesStruct> surroundingTiles = mTMXLayer->getSurroundingTilesAtPosition(mPandaSprite->getPosition());
+	vector<SurroundingTilesStruct> surroundingTiles = mTMXLayer->getSurroundingTilesAtPosition(mHero->getPosition());
 
-	mPandaSprite->onGround = false;
+	mHero->onGround = false;
 
 	for (int i = 0; i < surroundingTiles.size(); i++)
 	{
-		Rect pRect = mPandaSprite->getCollisionBoundingBox();
+		Rect pRect = mHero->getCollisionBoundingBox();
 		int gid = surroundingTiles[i].gid;
 		if (gid != 0)
 		{
@@ -89,12 +89,12 @@ void CGameLayer::checkForAndResolveCollisions( float dt )
 				if (i == 0) 
 				{
 					//tile is directly below panda
-					mPandaSprite->setDesiredPosition(Point(mPandaSprite->getDesiredPosition().x, 
-						mPandaSprite->getDesiredPosition().y + intersection.size.height));
-					mPandaSprite->onGround = true;
+					mHero->setDesiredPosition(Point(mHero->getDesiredPosition().x, 
+						mHero->getDesiredPosition().y + intersection.size.height));
+					mHero->onGround = true;
 				}
 			}
 		}
 	}
-	mPandaSprite->setPosition(mPandaSprite->getDesiredPosition());
+	mHero->setPosition(mHero->getDesiredPosition());
 }

@@ -45,11 +45,11 @@
     <ClCompile Include="..\Classes\Layer\CSpriteLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Sprite\CPandaSprite.cpp">
-      <Filter>Sprite</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Tools\CGameHelper.cpp">
       <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Sprite\CHeroSprite.cpp">
+      <Filter>Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,11 +78,11 @@
     <ClInclude Include="..\Classes\Layer\CSpriteLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Sprite\CPandaSprite.h">
-      <Filter>Sprite</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Tools\CGameHelper.h">
       <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sprite\CHeroSprite.h">
+      <Filter>Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
